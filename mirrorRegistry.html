@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зеркальна зміна регістрів</title>
+</head>
+
+<body>
+    <script>
+        let innerPhrase = prompt('Enter some text on english or russian, as you wish (: ')
+        let outPhrase = innerPhrase.replace(/([a-zа-я]+)|([A-ZА-Я]+)/g, function (_, low, up) {
+            return low ? low.toUpperCase() : up.toLowerCase()
+        })
+        alert(`Result: ${outPhrase}`)
+    </script>
+</body>
+
+</html>
