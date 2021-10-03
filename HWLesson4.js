@@ -2,7 +2,11 @@
 // (приклад строки у camel case: thisIsExampleOfTheCamelCase), яка б поєднувала в собі всі елементи масиву які є строками.
 let myArr = [];
 function mergeStr(myArr) {
-    let merge = myArr.filter(x => typeof x === 'string').map(word => word.toLowerCase()).map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1)).join('')
+    let merge = myArr
+    .filter(x => typeof x === 'string')
+    .map(word => word.toLowerCase())
+    .map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))
+    .join('')
     return merge;
 }
 mergeStr([109, 'HeLLo', true, 09, 'my', [1, 3, 4], 'FRIEND']) //helloMyFriend
