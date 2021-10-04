@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.addEventListener('unload', function (event) {
+            alert('Уже уходиш?');
+        }); //не працює
+        document.addEventListener('DOMContentLoaded', () =>
+            console.log('Час і дата, коли DOM побудований, але css, зображення ще не завантажились: ' + Date()))
+    </script>
+    <img src="https://habrastorage.org/getpro/habr/post_images/023/196/b6b/023196b6b50f13775dde217a79e3e1f9.png"
+        width="120" height="120" alt="Просто картинка">
+    <script defer>
+        // img.onload = () => console.log('Дата і час, коли побудований DOM та завантажились css i images' + Date()) чомусь не працює, не розуміє що таке img
+        window.onload = () => console.log('Дата і час, коли побудований DOM та завантажились css i images ' + Date())
+        window.addEventListener('unload', () => console.log('Дата і час, коли user натиснув Закрити вкладку або перезавантажив її' + Date()))
+        console.log(navigator.userAgent)
+        window.addEventListener('unload', function (event) {
+            alert('Уже уходиш?');
+        }); //не працює
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
