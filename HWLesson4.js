@@ -35,3 +35,14 @@ function todo(myObj) {
     ); return entries;
 }
 todo({ a: 12, b: -10, c: 'string', d: 2 }) //{a: 12, d: 2}
+
+//Завдання з зірочкою 1
+//Функція яка отримує параметром масив строк і повертає суму довжин усіх строк, рахувати тільки англ. букви без пробілів, знаків пунктуації, тощо.
+let myArr = [];
+function strFromArr(myArr) {
+    let myString = myArr
+        .join('')
+        .match(/[^_\W]+/g).join('')
+    console.log(myString)
+    return myString.length;
+}
