@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Homework</title>
+</head>
+
+<body>
+    <script>
+
+
+
+
+    </script>
+    <div class="container">
+        <ul id="animals">
+            <li class="pet">Dog</li>
+            <li id="cat" class="pet">Cat</li>
+            <li class="wild">Elephant</li>
+            <li class="wild">Whale</li>
+            <li class="wild">Horse</li>
+            <li class="wild dangerous">Tiger</li>
+        </ul>
+        <ul id="birds">
+            <li class="wild">Eagle</li>
+            <li class="wild">Sparrow</li>
+            <li class="pet wild">Parrot</li>
+        </ul>
+    </div>
+    <script>
+        //Функція яка збільшує розмір шрифту всіх елементів списку animals
+        let animals = document.getElementById("animals")
+        function upFontSize(fontSize) {
+            return animals.style.fontSize = `${fontSize}px`
+        }
+
+        //Функція яка видаляє всі класи останнього елемента списку animals
+        let item = document.querySelector('#animals').lastElementChild
+        function deleteLastClasses() {
+            item.className = ''
+        }
+
+        //Функція яка змінює background-color наступного елемента після елемента з id="cat"
+        let elemCat = document.getElementById('cat')
+        let nextByCat = elemCat.nextElementSibling
+        function bgcolorNext(color) {
+            nextByCat.style.backgroundColor = `${color}`
+        }
+
+        //Функція яка змінює колір тексту на червоний всім елементам які мають клас dangerous
+        let dangerous = document.querySelector('.dangerous')
+        function setColorRed() {
+            return dangerous.style.color = 'red'
+        }
+
+        //Функція яка додає додає новий елемент в список birds - після цього це має бути список у якому новий елемент є першим
+        let parentElem = document.getElementById('birds')
+        function addFirstItem() {
+            let newBird = document.createElement('li')
+            newBird.textContent = 'Colibri'
+            parentElem.prepend(newBird)
+        }
+
+        //Функція яка додає додає новий елемент в список birds - після цього це має бути список у якому новий елемент є останнім
+        function addLastItem() {
+            let newBird = document.createElement('li')
+            newBird.textContent = 'NewBird'
+            parentElem.append(newBird)
+        }
+
+
+        //Функція яка додає додає новий список id="fish" перед списком birds
+        function addNewList(fish) {
+            let newList = document.createElement('ul')
+            newList.setAttribute('id', 'fish')
+            parentElem.before(newList)
+            const parentFish = document.getElementById('fish')
+            let newFish = document.createElement('li')
+            parentFish.prepend(newFish)
+            newFish.textContent = `${fish}`
+        }
+
+
+    </script>
+</body>
+
+</html>
