@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HWLesson6</title>
+    <style>
+        #container {
+            padding: 30px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: large;
+            font-weight: 600;
+        }
+
+        #log {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 10px;
+            font-size: large;
+            font-weight: 600;
+        }
+
+        form {
+            width: 700px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input {
+            height: 30px;
+        }
+
+
+        form input,
+        textarea {
+            margin: 20px 0;
+        }
+
+        #button {
+            width: 30%;
+            padding: 10px;
+            display: block;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <form method="POST" id="form" name="form">
+            <label for=" nickname">Your nickname: </label>
+            <input type="text" name="nickname" id="nickname" value="" placeholder="Enter your nickname (3-24 symbols)"
+                onchange="onChangeTxt(nickname, 3, 24)" oninput="alphanumeric(nickname) ">
+            <label for="myName"> Your name: </label>
+            <input type="text" name="myName" id="myName" value="" placeholder="Enter your name(1-100 symbols)"
+                onchange="onChangeTxt(myName, 1, 100)" onkeyup="allLetter(myName)">
+            <label for="comment">Your comment: </label>
+            <textarea name="comment" id="comment" cols="30" rows="10" value=""
+                placeholder="Enter your comment (1-1000 symbols)" minlength="3" maxlength="1000"
+                onchange="onChangeTxt(comment, 1, 1000)" oninput="commentSymbols(comment)"></textarea>
+            <input type="submit" id="button" value="Add comment" disabled="disabled">
+        </form>
+
+    </div>
+
+    <script>
+        const form = document.getElementById('form')
+        const submit = document.getElementById('button')
+        const log = document.getElementById('log')
+
+
+        function logSubmit(event) {
+            let container = document.getElementById('container')
+            let nickValue = document.querySelector('#nickname').value;
+            let myNameValue = document.querySelector('#myName').value;
+            let commentValue = document.querySelector('#comment').value;
+            let log = document.createElement("div")
+            log.innerHTML = `<p>${nickValue} - ${myNameValue} </p> <p>${commentValue} </p>`;
+            log.setAttribute('id', 'log')
+            document.body.prepend(container, log)
+            event.preventDefault();
+        }
+        form.addEventListener('submit', logSubmit);
+
+        function onChangeTxt(inputtxt, minlength, maxlength) {
+            if (inputtxt.value.length >= minlength && inputtxt.value.length <= maxlength) {
+                inputtxt.style.border = '2px solid grey';
+                returnButton();
+                return true;
+            }
+            else {
+                inputtxt.style.border = '2px solid red';
+                event.preventDefault();
+                alert(`${inputtxt.name} should be no less than ${minlength} and no more than ${maxlength} symbols`)
+                return false;
+            }
+
+        }
+        function allLetter(inputtxt) {
+            let letters = /^[A-Za-z]+$/;
+            if (inputtxt.value.match(letters)) {
+                return true;
+            }
+            else {
+                alert("Use only english letters");
+                return false;
+            }
+        }
+        // Function to check letters and numbers
+        function alphanumeric(inputtxt) {
+            let letterNumber = /^[0-9a-zA-Z]+$/;
+            if ((inputtxt.value.match(letterNumber))) {
+                return true;
+            }
+            else {
+                alert("Use only numbers and english letter");
+                return false;
+            }
+        }
+        function commentSymbols(inputtxt) {
+            let commentRegex = /^[0-9a-zA-Z<.,?! >]+$/;
+            if ((inputtxt.value.match(commentRegex))) {
+                return true;
+            }
+            else {
+                alert("Use only numbers, english letter and .,!? and probel");
+                return false;
+            }
+        }
+        function returnButton() {
+            let nickValue = document.querySelector('#nickname').value;
+            let myNameValue = document.querySelector('#myName').value;
+            let commentValue = document.querySelector('#comment').value;
+            if (nickValue.length > 2 && myNameValue.length > 0 && commentValue.length > 0) {
+                document.getElementById('button').removeAttribute('disabled')
+            }
+        }
+
+    </script>
+</body>
+
+</html>
