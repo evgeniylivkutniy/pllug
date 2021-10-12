@@ -58,13 +58,13 @@
     <div id="container">
         <form method="POST" id="form" name="form">
             <label for=" nickname">Your nickname: </label>
-            <input type="text" name="nickname" id="nickname" value="" placeholder="Enter your nickname (3-24 symbols)"
+            <input required type="text" name="nickname" id="nickname" value="" placeholder="Enter your nickname (3-24 symbols)"
                 onchange="onChangeTxt(nickname, 3, 24)" oninput="alphanumeric(nickname) ">
             <label for="myName"> Your name: </label>
-            <input type="text" name="myName" id="myName" value="" placeholder="Enter your name(1-100 symbols)"
+            <input required type="text" name="myName" id="myName" value="" placeholder="Enter your name(1-100 symbols)"
                 onchange="onChangeTxt(myName, 1, 100)" onkeyup="allLetter(myName)">
             <label for="comment">Your comment: </label>
-            <textarea name="comment" id="comment" cols="30" rows="10" value=""
+            <textarea required name="comment" id="comment" cols="30" rows="10" value=""
                 placeholder="Enter your comment (1-1000 symbols)" minlength="3" maxlength="1000"
                 onchange="onChangeTxt(comment, 1, 1000)" oninput="commentSymbols(comment)"></textarea>
             <input type="submit" id="button" value="Add comment" disabled="disabled">
