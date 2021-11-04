@@ -1,12 +1,17 @@
 const addBtn = document.getElementById('addBtn')
 let todoList = [];
 //оголосимо змінні для секундоміра
-let startTimer = 0;
+// let startTimer = {}
 let sec = 0;
-min = 0;
-hrs = 0;
-let t;
-let isPaused = false;
+let min = 0;
+let hrs = 0;
+let interval;
+const timers = {
+    'key': {
+        isPaused: false,
+        time: 0
+    }
+}
 
 //
 addBtn.addEventListener('click', () => {
@@ -17,8 +22,8 @@ addBtn.addEventListener('click', () => {
     let i = todoList.length;
     todoList[i] = todoObj;
     showList();
-
-    timer();
+    clearInterval(interval)
+    interval = setInterval(add, 1000)
 })
 
 //timer functions
@@ -38,18 +43,11 @@ function tick() {
 
 
 
-function timer() {
-
-    t = setTimeout(add, 1000);
-
-}
 function add() {
-
     tick();
     startTimer.innerText = (hrs > 9 ? hrs : "0" + hrs)
         + ":" + (min > 9 ? min : "0" + min)
         + ":" + (sec > 9 ? sec : "0" + sec);
-    timer();
 }
 
 
