@@ -80,6 +80,10 @@ function showList() {
     playedBtn.innerHTML = '<i class="fa-solid fa-circle-play"></i>'
     let deleteBtn = document.createElement('p')
     deleteBtn.classList.add('deleteBtn');
+    function deleteTask() {
+        newTask.remove()
+    }
+    deleteBtn.addEventListener('click', (e) => deleteTask(e))
     newTask.appendChild(playedBtn)
     newTask.appendChild(pausedBtn)
 
