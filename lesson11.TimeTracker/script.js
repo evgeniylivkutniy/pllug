@@ -6,12 +6,14 @@ let sec = 0;
 let min = 0;
 let hrs = 0;
 let interval;
+let isPaused;
 const timers = {
     'key': {
         isPaused: false,
         time: 0
     }
 }
+timers.key.isPaused = isPaused;
 
 //
 addBtn.addEventListener('click', () => {
@@ -92,7 +94,3 @@ function showList() {
         isPaused = false;
     })
 }
-
-
-
-
