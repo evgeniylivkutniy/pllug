@@ -1,35 +1,31 @@
 const addBtn = document.getElementById('addBtn')
 let todoList = [];
-//оголосимо змінні для секундоміра
-// let startTimer = {}
-let sec = 0;
-let min = 0;
-let hrs = 0;
 let interval;
-let isPaused;
-const timers = {
-    'key': {
-        isPaused: false,
-        time: 0
-    }
-}
-timers.key.isPaused = isPaused;
+let isPaused = false;
 
-//
 addBtn.addEventListener('click', () => {
 
     let inputValue = document.getElementById('enterTodo').value;
     let todoObj = {};
     todoObj.todo = inputValue;
+    todoObj.sec = 0;
+    todoObj.min = 0;
+    todoObj.hrs = 0;
     let i = todoList.length;
     todoList[i] = todoObj;
     showList();
     clearInterval(interval)
+    clearTicks();
     interval = setInterval(add, 1000)
 })
-
+function clearTicks() {
+    min = 0;
+    sec = 0;
+    hrs = 0;
+}
 //timer functions
 function tick() {
+
     if (!isPaused) {
         sec++;
         if (sec >= 60) {
@@ -80,15 +76,15 @@ function showList() {
     playedBtn.innerHTML = '<i class="fa-solid fa-circle-play"></i>'
     let deleteBtn = document.createElement('p')
     deleteBtn.classList.add('deleteBtn');
-    function deleteTask() {
-        newTask.remove()
-    }
-    deleteBtn.addEventListener('click', (e) => deleteTask(e))
     newTask.appendChild(playedBtn)
     newTask.appendChild(pausedBtn)
 
     newTask.appendChild(deleteBtn)
     deleteBtn.innerHTML = '<i class="fa-solid fa-circle-minus"></i>'
+    function deleteTask() {
+        newTask.remove()
+    }
+    deleteBtn.addEventListener('click', (e) => deleteTask(e))
     pausedBtn.addEventListener('click', (e) => {
         e.preventDefault();
         isPaused = true;
@@ -97,4 +93,9 @@ function showList() {
         e.preventDefault();
         isPaused = false;
     })
+
 }
+
+
+
+
