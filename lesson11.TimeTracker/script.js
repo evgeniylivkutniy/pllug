@@ -1,28 +1,31 @@
 const addBtn = document.getElementById('addBtn')
 let todoList = [];
-//оголосимо змінні для секундоміра
-let startTimer = 0;
-let sec = 0;
-min = 0;
-hrs = 0;
-let t;
+let interval;
 let isPaused = false;
 
-//
 addBtn.addEventListener('click', () => {
 
     let inputValue = document.getElementById('enterTodo').value;
     let todoObj = {};
     todoObj.todo = inputValue;
+    todoObj.sec = 0;
+    todoObj.min = 0;
+    todoObj.hrs = 0;
     let i = todoList.length;
     todoList[i] = todoObj;
     showList();
-
-    timer();
+    clearInterval(interval)
+    clearTicks();
+    interval = setInterval(add, 1000)
 })
-
+function clearTicks() {
+    min = 0;
+    sec = 0;
+    hrs = 0;
+}
 //timer functions
 function tick() {
+
     if (!isPaused) {
         sec++;
         if (sec >= 60) {
@@ -38,18 +41,11 @@ function tick() {
 
 
 
-function timer() {
-
-    t = setTimeout(add, 1000);
-
-}
 function add() {
-
     tick();
     startTimer.innerText = (hrs > 9 ? hrs : "0" + hrs)
         + ":" + (min > 9 ? min : "0" + min)
         + ":" + (sec > 9 ? sec : "0" + sec);
-    timer();
 }
 
 
@@ -85,6 +81,10 @@ function showList() {
 
     newTask.appendChild(deleteBtn)
     deleteBtn.innerHTML = '<i class="fa-solid fa-circle-minus"></i>'
+    function deleteTask() {
+        newTask.remove()
+    }
+    deleteBtn.addEventListener('click', (e) => deleteTask(e))
     pausedBtn.addEventListener('click', (e) => {
         e.preventDefault();
         isPaused = true;
@@ -93,6 +93,7 @@ function showList() {
         e.preventDefault();
         isPaused = false;
     })
+
 }
 
 
