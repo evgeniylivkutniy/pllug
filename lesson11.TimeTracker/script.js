@@ -1,7 +1,7 @@
 const addBtn = document.getElementById('addBtn')
 let todoList = [];
 let interval;
-let isPaused = false;
+let isPaused = false; // isPaused єдине для всіх таймерів, дозволить працювати тільки з одним. Відповідно tracker не працюватиме повноціно
 
 addBtn.addEventListener('click', () => {
 
@@ -24,6 +24,7 @@ function clearTicks() {
     hrs = 0;
 }
 //timer functions
+// простішим та швидшим рішенням було б додавати 1000ms = 1s до змінної, яка б зберігала значення часу в мілісекундах (напр. Date.now()), а вже перед виведенням форматувати значення мілісекунд у читабельний та зрозумілий формат
 function tick() {
 
     if (!isPaused) {
@@ -96,6 +97,6 @@ function showList() {
 
 }
 
-
+// відсутнє зберігання даних та синхрорізація з localStorage або IndexedDB
 
 
