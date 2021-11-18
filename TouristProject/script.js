@@ -15,7 +15,7 @@ const getLocation = () => new Promise((resolve, reject) => {
 async function myMap(data) {
     let requestData = data // requestData не змінюється, тому краще використовувати const
     const coords = await getLocation()
-    let map = new google.maps.Map(document.getElementById('map'), {
+    let map = new google.maps.Map(document.getElementById('map'), { // const
         center: { lat: coords.latitude, lng: coords.longitude },
         zoom: 12
     });
