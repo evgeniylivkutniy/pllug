@@ -41,3 +41,5 @@ self.addEventListener('fetch', (event) => {
             fetch(event.request))
         .catch(() => caches.match(e.request));
 });
+
+// Все ок.
