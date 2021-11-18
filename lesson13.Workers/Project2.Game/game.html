@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Знайди пару</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="counter">
+            <div class="plusCount">
+                Виконано ходів: <span id="count"></span>
+            </div>
+            <div class="otherName">
+                <div class="link"><a href="./index.html">Вказати інше ім'я</a></div>
+            </div>
+        </div>
+        <div class="game-container">
+            <section class="mygame">
+                <div class="cards" data-hero="xman">
+                    <img src="./images/1.jpg" alt="1" class="front-face">
+                    <img src="./images/m.jpg" alt="m" class="back-face">
+                </div>
+                <div class="cards" data-hero="xman">
+                    <img src="./images/1.jpg" alt="1" class="front-face">
+                    <img src="./images/m.jpg" alt="m" class="back-face">
+                </div>
+                <div class="cards" data-hero="spider">
+                    <img src="./images/2.jpg" alt="2" class="front-face">
+                    <img src="./images/m.jpg" alt="m" class="back-face">
+                </div>
+                <div class="cards" data-hero="spider">
+                    <img src="./images/2.jpg" alt="2" class="front-face">
+                    <img src="./images/m.jpg" alt="m" class="back-face">
+                </div>
+                <div class="cards" data-hero="batman">
+                    <img src="./images/3.jpg" alt="3" class="front-face">
+                    <img src="./images/m.jpg" alt="m" class="back-face">
+                </div>
+                <div class="cards" data-hero="batman">
+                    <img src="./images/3.jpg" alt="3" class="front-face">
+                    <img src="./images/m.jpg" alt="m" class="back-face">
+                </div>
+                <div class="cards" data-hero="capitan">
+                    <img src="./images/4.jpg" alt="4" class="front-face">
+                    <img src="./images/m.jpg" alt="m" class="back-face">
+                </div>
+                <div class="cards" data-hero="capitan">
+                    <img src="./images/4.jpg" alt="4" class="front-face">
+                    <img src="./images/m.jpg" alt="m" class="back-face">
+                </div>
+                <div class="cards" data-hero="punisher">
+                    <img src="./images/5.jpg" alt="5" class="front-face">
+                    <img src="./images/m.jpg" alt="m" class="back-face">
+                </div>
+                <div class="cards" data-hero="punisher">
+                    <img src="./images/5.jpg" alt="5" class="front-face">
+                    <img src="./images/m.jpg" alt="m" class="back-face">
+                </div>
+                <div class="cards" data-hero="ironman">
+                    <img src="./images/6.jpg" alt="6" class="front-face">
+                    <img src="./images/m.jpg" alt="m" class="back-face">
+                </div>
+                <div class="cards" data-hero="ironman">
+                    <img src="./images/6.jpg" alt="6" class="front-face">
+                    <img src="./images/m.jpg" alt="m" class="back-face">
+                </div>
+                <div class="cards" data-hero="flash">
+                    <img src="./images/7.jpg" alt="7" class="front-face">
+                    <img src="./images/m.jpg" alt="m" class="back-face">
+                </div>
+                <div class="cards" data-hero="flash">
+                    <img src="./images/7.jpg" alt="7" class="front-face">
+                    <img src="./images/m.jpg" alt="m" class="back-face">
+                </div>
+                <div class="cards" data-hero="deadpool">
+                    <img src="./images/8.jpg" alt="8" class="front-face">
+                    <img src="./images/m.jpg" alt="m" class="back-face">
+                </div>
+                <div class="cards" data-hero="deadpool">
+                    <img src="./images/8.jpg" alt="8" class="front-face">
+                    <img src="./images/m.jpg" alt="m" class="back-face">
+                </div>
+            </section>
+            <div class="finishWindow">
+                <div class="finishContent">
+                    <h2>Вітаємо <span id="playerName"></span>, ти переміг!</h2>
+                    <h3 style="padding: 20px 0;">Виконано ходів: <span id="result"></span></h3>
+                    <div id="tries"></div>
+                    <h3>Пройшло часу: <span id="timeEnd"></span> секунд</h3>
+                    <div id="timeOff"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

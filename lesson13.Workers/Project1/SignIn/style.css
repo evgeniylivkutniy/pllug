@@ -1,0 +1,159 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100vh;
+}
+/* img-box */
+.img-box{
+    background-size: cover;
+    background-image: url(../bg-image2.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    width: 50%;
+    
+}
+.img-box .title-box{
+
+    padding-top: 90px;
+    padding-left: 90px;
+    color: white;
+}
+.img-box .title-box h1{
+    font-size: 50px;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    opacity: 1;
+}
+
+.img-box .title-box h1 span{
+    color: red;
+}
+.img-box .title-box h2{
+    font-size: 24px;
+    font-weight: medium;
+    padding-top: 114px;
+}
+.img-box .title-box p{
+    padding-top: 25px;
+    padding-right: 138px;
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.8
+}
+/* second-box */
+.signin-box{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.signin-box .signin-form{
+    width: 442px;
+    text-align: left;
+    
+    
+}
+.signin-box .signin-form h2{
+    font-size: 32px;
+    font-weight: 500;
+    padding-top: 309px;
+    padding-bottom: 60px;
+    color: #8D8DA5;
+}
+.signin-box .signin-form #form{
+    display: flex;
+    flex-direction: column;
+
+}
+.signin-box .signin-form #form #emailItem{
+    margin-bottom: 30px;
+}
+.signin-box .signin-form #form input{
+    padding: 5px;
+    
+    border-radius: 8px;
+    border: 1px solid #DBDFEB;
+}
+.signin-box .signin-form #form label{
+    font-size: 13px;
+    font-weight: bold;
+    color: #181C32;
+}
+::-webkit-input-placeholder{
+    color: #8D8DA5;
+    font-size: 13px;
+    padding: 15px;
+    
+}
+.signin-box .signin-form .signButtons {
+    margin-top: 20px;
+     display: flex;
+     flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    
+    
+}
+.signin-box .signin-form .forgotLink{
+    display: flex;
+    justify-content: right;
+    text-align: right;
+    margin-top: 20px;
+    font-size: 13px;
+    
+}
+.signin-box .signin-form .forgotLink a{
+    color: black;
+    text-decoration: underline;
+}
+.signin-box .signin-form .signButtons #button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: red;
+    border-radius: 10px;
+   width: 164px;
+   height: 50px;
+}
+.signin-box .signin-form .signButtons #button:hover{
+    color: white;
+    background-color: black;
+}
+.signin-box .signin-form .signButtons .signIn{
+    padding-top: 24px;
+}
+.signin-box .signin-form .signButtons .signIn a{
+    font-size: 13px;
+    color: black;
+    text-decoration: underline;
+}
+/* media */
+@media (max-width: 768px) {
+    .img-box{
+        width: 100%;
+        background-position: bottom center;
+    }
+    .signin-box{
+        width: 100%;
+    }
+    .signin-box .signin-form h2{
+        padding-top: 50px;
+    }
+}
+@media (max-width: 992px){
+    .signin-box .signin-form{
+        width: 350px;
+        padding-bottom: 40px;
+    }
+}
